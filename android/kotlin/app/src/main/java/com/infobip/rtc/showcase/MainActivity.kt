@@ -85,10 +85,14 @@ class MainActivity : AppCompatActivity(), PhoneCallEventListener, WebrtcCallEven
         private val infobipRTC: InfobipRTC = InfobipRTC.getInstance()
     }
 
+
+
     private lateinit var accessToken: AccessToken
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+
         setContentView(R.layout.activity_main)
 
         tabLayout = findViewById(R.id.tabs)

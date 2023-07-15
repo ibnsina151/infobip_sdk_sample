@@ -4,6 +4,8 @@
 
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <uses-permission android:name="android.permission.USE_FULL_SCREEN_INTENT" />
+    <uses-permission android:name="android.permission.MANAGE_OWN_CALLS"/>
+
 
     <application
         android:allowBackup="true"
@@ -36,15 +38,23 @@
             </intent-filter>
         </service>
 
+
         <service
             android:name=".service.ForegroundService"
             android:enabled="true"
             android:exported="false"
-            android:foregroundServiceType="mediaProjection" />
+            android:foregroundServiceType="mediaProjection">
+
+            <intent-filter>
+
+                <action android:name="android.telecom.ConnectionService" />
+            </intent-filter>
+        </service>
 
         <service
             android:name="com.infobip.webrtc.sdk.impl.fcm.FcmTokenRefresher"
             android:exported="false" />
+
     </application>
 
 </manifest>
